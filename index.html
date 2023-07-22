@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/6331a5aa02.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+
+        /* <!----------------------------------------- Header ----------------------------------------> */
+
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            justify-content: space-between;
+            width: 90%;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-bar ul {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-bar ul li a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.2s;
+            margin: 0 5px;
+        }
+
+        .quote-btn {
+            background-color: red;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+        }
+
+
+
+
+        /* <!----------------------------------------- Main Content ----------------------------------------> */
+
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .content-1 .content-desc,
+        .content-3 .content-desc,
+        .content-5 .content-desc {
+            grid-column: 2/7;
+        }
+
+        .content-1 img,
+        .content-3 img,
+        .content-5 img {
+            grid-column: 8/10;
+        }
+
+        .content-2 img,
+        .content-4 img {
+            grid-column: 2/4;
+        }
+
+        .content-2 .content-desc,
+        .content-4 .content-desc {
+            grid-column: 5/10;
+        }
+
+        .content-6 p:first-child,
+        .content-6 p:last-child {
+            grid-column: 2/10;
+        }
+
+        .content img {
+            width: 350px;
+        }
+
+        .content-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .content-para {
+            font-size: 1.1rem;
+            color: #1a1919cc;
+            line-height: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+
+
+        /* <!----------------------------------------- Footer ----------------------------------------> */
+
+
+        footer {
+            width: 100%;
+            /* background-image: url(./images/background.png); */
+            background-color: black;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        .footer-logo {
+            margin-bottom: 8px;
+        }
+
+        .footer-top {
+            width: 95%;
+            padding-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex-basis: 25%;
+        }
+
+        .footer-col:nth-child(2),
+        .footer-col:nth-child(3) {
+            flex-basis: 15%;
+        }
+
+        .footer-col h3 {
+            width: fit-content;
+            margin-bottom: 30px;
+            position: relative;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p {
+            line-height: 30px;
+            color: white;
+            opacity: 0.6;
+        }
+
+        .footer-col ul li {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: white;
+            opacity: 0.6;
+        }
+
+        .footer-col form {
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .footer-col .email-sent {
+            background-color: #185CB7;
+            padding: 12px 0;
+            width: 20%;
+            margin-top: 10px;
+        }
+
+        .footer-address {
+            display: flex;
+            align-items: start;
+            gap: 20px;
+        }
+
+        .footer-email {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        form input {
+            width: 100%;
+            border: 0;
+            outline: none;
+            padding: 12px 10px;
+            margin-top: 10px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        form button {
+            background: transparent;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .social-media-icons {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        hr {
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .footer-down {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 95%;
+            padding: 20px 0;
+        }
+
+        /* -------------------------------------------Media Queries----------------------------------------------- */
+
+
+
+
+        @media only screen and (max-width: 1100px) {
+            header {
+                font-size: 0.8rem;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .content-para {
+                font-size: 1rem;
+                color: #363333;
+            }
+
+            .content-heading{
+                font-size: 1.4rem;
+            }
+
+            .content img {
+                width: 300px;
+            }
+
+
+            .footer-col h3 {
+                font-size: 1.1rem;
+            }
+
+            .footer-col p {
+                font-size: 0.9rem;
+            }
+
+
+            .footer-col .email-sent {
+                padding: 15px 10px;
+                width: 20%;
+                margin-top: 15px;
+            }
+
+            form input {
+                padding: 15px 10px;
+                margin-top: 15px;
+            }
+
+
+            .footer-down {
+                font-size: 0.9rem;
+            }
+        }
+
+
+        @media (max-width: 992px) {
+
+
+            .content img {
+                width: 300px;
+            }
+
+            .content-heading {
+                font-size: 1.2rem;
+            }
+
+
+            footer {
+                bottom: unset;
+            }
+
+            .footer-top {
+                width: 80%;
+            }
+
+            .footer-col {
+                flex-basis: 50%;
+            }
+
+            .footer-col:nth-child(2),
+            .footer-col:nth-child(3) {
+                flex-basis: 50%;
+            }
+
+            .footer-col h3 {
+                font-size: 1.3rem;
+            }
+
+            form input {
+                padding: 15px 10px;
+                margin-top: 15px;
+                width: 70%;
+                margin-left: 50px;
+            }
+
+            .footer-col .email-sent {
+                padding: 16px 10px;
+                width: 15%;
+            }
+
+            .footer-down {
+                width: 90%;
+            }
+
+            .footer-col:nth-child(1),
+            .footer-col:nth-child(2) {
+                margin-bottom: 50px;
+            }
+
+            .footer-col:nth-child(2) h3 {
+                margin-left: 50px;
+            }
+
+            .footer-col:nth-child(4) h3 {
+                margin-left: 50px;
+            }
+
+            .footer-col:nth-child(4) {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .footer-col:nth-child(2) ul {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin-left: 50px;
+            }
+
+            .footer-col:nth-child(4) p {
+
+                margin-left: 50px;
+            }
+        }
+
+
+
+        @media only screen and (max-width: 900px) {
+
+            .logo img {
+                width: 170px;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger .line {
+                width: 30px;
+                height: 3px;
+                background-color: black;
+                margin: 6px 0;
+            }
+
+            .nav-bar.active {
+                height: 450px;
+            }
+
+            .nav-bar {
+                height: 0;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                background-color: white;
+                transition: 0.3s;
+                overflow: hidden;
+            }
+
+            .nav-bar.active ul {
+                opacity: 1;
+            }
+
+            .quote-btn {
+                padding: 10px 30px;
+            }
+
+            .nav-bar ul {
+                display: flex;
+                flex-direction: column;
+                width: fit-content;
+                margin: 80px auto 0 auto;
+                text-align: center;
+                transition: 0.5s;
+                opacity: 0;
+                margin-bottom: 12px;
+            }
+
+            .nav-bar ul li a {
+                color: black;
+                font-size: 1.3rem;
+                /* margin: 30px 0; */
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .content img {
+                width: 280px;
+            }
+
+            .footer-col:nth-child(2) ul {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                margin-left: 50px;
+            }
+
+            .footer-col li {
+                font-size: 0.9rem;
+            }
+
+            .footer-col h3 {
+                font-size: 1.1rem;
+            }
+
+            .footer-col p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+
+            .content-para {
+                font-size: 0.9rem;
+            }
+
+            .content img {
+                width: 250px;
+            }
+
+            .content-heading {
+                font-size: 1.1rem;
+            }
+
+
+        }
+
+        @media (max-width: 750px) {
+
+            .footer-col h3 {
+                font-size: 0.9rem;
+            }
+
+            .footer-col p {
+                font-size: 0.8rem;
+            }
+
+            .footer-down {
+                flex-direction: column;
+                gap: 20px;
+                font-size: 0.8rem;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .main-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .content-heading{
+                font-size: 1.4rem;
+            }
+
+            .content-para{
+                font-size: 1rem;
+            }
+
+            .content-1 {
+                margin-top: 80px;
+            }
+
+            .content-1,
+            .content-3,
+            .content-5 {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+            }
+
+            .content-2,
+            .content-4 {
+                flex-direction: column-reverse;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+            }
+
+            .content-6 {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+            }
+
+            .content img {
+                width: 350px;
+            }
+
+            footer {
+                bottom: unset;
+            }
+
+            .footer-col {
+                flex-basis: 100%;
+            }
+
+            .footer-col:nth-child(2),
+            .footer-col:nth-child(3) {
+                flex-basis: 100%;
+            }
+
+
+
+
+
+            .footer-col h3 {
+                font-size: 1.2rem;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+
+
+            form input {
+                padding: 10px;
+                width: 60%;
+                margin-left: 0;
+            }
+
+            .footer-col .email-sent {
+                padding: 10px;
+                width: 10%;
+            }
+
+            .footer-down {
+                width: 90%;
+            }
+
+            .footer-col:nth-child(1),
+            .footer-col:nth-child(2) {
+                margin-bottom: 0;
+            }
+
+            .footer-col:nth-child(2) h3 {
+                margin-left: 0;
+            }
+
+            .footer-col:nth-child(4) h3 {
+                margin-left: 0;
+            }
+
+            .footer-col:nth-child(2) ul {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                margin-left: 0;
+            }
+
+            .footer-col:nth-child(4) p {
+                margin-left: 0;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .logo img {
+                width: 120px;
+            }
+
+            .content img {
+                width: 300px;
+            }
+
+            .footer-down {
+                font-size: 0.7rem;
+            }
+
+        }
+
+        @media (max-width: 450px) {
+            .content img {
+                width: 280px;
+            }
+
+            .footer-col:nth-child(2) ul {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin-left: 0;
+            }
+        }
+
+
+
+
+        @media (max-width: 360px) {
+            .footer-down {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+
+.content-para{
+    font-size: 0.9rem;
+}
+
+            .content img {
+                width: 250px;
+            }
+
+            .footer-col h3 {
+                font-size: 1rem;
+            }
+
+            .footer-down {
+                font-size: 0.5rem;
+            }
+
+            form input {
+                width: 80%;
+            }
+
+            .footer-col .email-sent {
+                width: 20%;
+            }
+
+            .footer-col:nth-child(2) ul {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                margin-left: 0;
+            }
+
+        }
+
+        @media (max-width: 232px) {
+
+            .content-para{
+                font-size: 0.8rem;
+            }
+
+            .content img {
+                width: 140px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!----------------------------------------- Header ---------------------------------------->
+
+    <header>
+        <div class="header">
+            <div class="logo"><a href="#"><img src="./images/logo.png" alt=""></a></div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="#" class="active">Products</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Industries</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <a href="#" class="quote-btn">Quote</a>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <!----------------------------------------- Header ---------------------------------------->
+
+
+    <!----------------------------------------- Main Content ---------------------------------------->
+
+
+    <svg id="wave" style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 170" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+                <stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop>
+                <stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <path style="transform:translate(0, 0px); opacity:1" fill="#185CB7"
+            d="M0,119L48,102C96,85,192,51,288,45.3C384,40,480,62,576,79.3C672,96,768,108,864,107.7C960,108,1056,96,1152,76.5C1248,57,1344,28,1440,34C1536,40,1632,79,1728,104.8C1824,130,1920,142,2016,124.7C2112,108,2208,62,2304,42.5C2400,23,2496,28,2592,51C2688,74,2784,113,2880,124.7C2976,136,3072,119,3168,116.2C3264,113,3360,125,3456,110.5C3552,96,3648,57,3744,51C3840,45,3936,74,4032,87.8C4128,102,4224,102,4320,90.7C4416,79,4512,57,4608,42.5C4704,28,4800,23,4896,39.7C4992,57,5088,96,5184,113.3C5280,130,5376,125,5472,116.2C5568,108,5664,96,5760,93.5C5856,91,5952,96,6048,85C6144,74,6240,45,6336,51C6432,57,6528,96,6624,96.3C6720,96,6816,57,6864,36.8L6912,17L6912,170L6864,170C6816,170,6720,170,6624,170C6528,170,6432,170,6336,170C6240,170,6144,170,6048,170C5952,170,5856,170,5760,170C5664,170,5568,170,5472,170C5376,170,5280,170,5184,170C5088,170,4992,170,4896,170C4800,170,4704,170,4608,170C4512,170,4416,170,4320,170C4224,170,4128,170,4032,170C3936,170,3840,170,3744,170C3648,170,3552,170,3456,170C3360,170,3264,170,3168,170C3072,170,2976,170,2880,170C2784,170,2688,170,2592,170C2496,170,2400,170,2304,170C2208,170,2112,170,2016,170C1920,170,1824,170,1728,170C1632,170,1536,170,1440,170C1344,170,1248,170,1152,170C1056,170,960,170,864,170C768,170,672,170,576,170C480,170,384,170,288,170C192,170,96,170,48,170L0,170Z">
+        </path>
+    </svg>
+    <div class="main-content">
+        <div class="content content-1">
+            <div class="content-desc">
+                <h2 class="content-heading">How does Aadhaar eSign enhance digital transactions?</h2><br>
+                <p class="content-para">
+                    Aadhaar and Aadhaar-enabled services have the potential to revolutionize
+                    domestic
+                    technological consumption in India. The Unique Identification Authority of India (UIDAI) reports
+                    that
+                    Aadhaar has over 100 crores (1 billion) users, and Aadhaar-based eSign transactions have covered
+                    about
+                    3.3 crores (33 million) people in 2017 alone. The banking and non-banking financial sectors have
+                    been at
+                    the forefront of adopting Aadhaar-based transactions.
+                </p>
+            </div>
+            <img src="./images/My password-amico.svg" alt="">
+        </div>
+        <div class="content content-2">
+            <img src="./images/My password-bro.svg" alt="">
+            <div class="content-desc">
+                <p class="content-para">The widespread implementation of Aadhaar authentication necessitates the
+                    deployment
+                    of many biometric devices, which can stimulate the hardware industry in the country. Using an
+                    authentication method, alongside fingerprint recognition, is expected to drive the sale of
+                    iris-enabled
+                    mobile devices.</p><br>
+                <p class="content-para">Aadhaar-related technologies are not limited to hardware but have implications
+                    for
+                    software applications. Aadhaar can streamline customer sign-up, employee onboarding, employment
+                    verification, and documentation formalities. Companies like Meon Technologies have developed
+                    Aadhaar-enabled eSign products that allow corporations to digitize documentation work and facilitate
+                    signing contracts and agreements.</p>
+            </div>
+        </div>
+        <div class="content content-3">
+            <div class="content-desc">
+                <p class="content-para">Payment service providers are leveraging Aadhaar to offer Aadhaar-enabled
+                    payment
+                    systems (AEPS) and perform electronic Know Your Customer (eKYC) processes for their merchants. AEPS
+                    has
+                    been particularly useful in providing cash-in and cash-out services to customers in rural and
+                    semi-urban
+                    areas. However, implementing Aadhaar-based payment systems requires upgrading communication networks
+                    to
+                    accommodate the transmission of biometric data.</p><br>
+                <p class="content-para">Startups and tech companies are also capitalizing on Aadhaar to provide
+                    user-friendly services. Meon Technologies, for example, has simplified the mutual fund investment
+                    process using Aadhaar eKYC. Previously, the KYC process involved printing, signing, and couriering
+                    documents, but now it can be completed online and paperless through Aadhaar eKYC.</p>
+            </div>
+            <img src="./images/My password-cuate.svg" alt="">
+        </div>
+        <div class="content content-4">
+            <img src="./images/My password-rafiki.svg" alt="">
+            <div class="content-desc">
+                <p class="content-para">The demand for Aadhaar-enabled services is growing rapidly, leading to a surge
+                    in
+                    the production of Aadhaar-enabled biometric systems and payment services. Market reports indicate a
+                    200%
+                    increase in demand for Aadhaar-enabled payment systems in the last quarter and a more than 1500%
+                    surge
+                    in demand for Aadhaar card-making services.</p>
+            </div>
+        </div>
+        <div class="content content-5">
+            <div class="content-desc">
+                <p class="content-para">Aadhaar has also facilitated instant account opening and verification. With the
+                    amendments to various regulations, opening limited functionality accounts for savings and loans
+                    through
+                    paperless eKYC using Aadhaar-linked mobile phones is now possible. This reduces the need to visit a
+                    branch or submit physical paperwork. This shift towards paperless access to financial products is
+                    just
+                    the beginning.</p><br>
+                <p class="content-para">The data collected online suggests that Indian consumers prefer submitting
+                    documents
+                    through secure online platforms rather than offline processes involving sales agents and physical
+                    paperwork. This indicates that Indian consumers are comfortable transacting online using Aadhaar as
+                    the
+                    authentication mechanism.</p>
+            </div>
+            <img src="./images/My password-pana.svg" alt="">
+        </div>
+        <div class="content content-6">
+            <p class="content-para">
+                The impact of Aadhaar linking and enabled services has led to increased demand for various technologies.
+                Software companies, hardware manufacturers, and handset makers are experiencing growth in their India
+                business. Dell EMC, for instance, recognizes a $26 billion market opportunity in India and aims to
+                leverage
+                the government's JAM (Jan Dhan-Aadhaar-Mobile) initiatives to strengthen its position in the Indian
+                market.
+            </p>
+            <p class="content-para">
+                Overall, Aadhaar and Aadhaar-enabled services can potentially drive significant changes in domestic
+                technological consumption in India, benefiting both the hardware and software industries and
+                transforming
+                how people access financial services, conduct transactions, and engage with various sectors of the
+                economy.
+            </p>
+        </div>
+    </div>
+
+    <!----------------------------------------- Main Content ---------------------------------------->
+
+    <!----------------------------------------- Footer ---------------------------------------->
+
+
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col">
+                <div class="logo footer-logo"> <img src="./images/logo.png" class="footer-logo"></div>
+                <p>It is a long established fact that a reader
+                    will be distracted by the readable content
+                    of a page when looking at its layout.
+                    The point of using Lorem Ipsum is that
+                    it has a more-or-less normal distribution</p>
+            </div>
+            <div class="footer-col">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Industries</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p>Boost your sales with our
+                    WhatsApp Chatbot Solution</p>
+                <p class="footer-address"><i style="margin-top: 8px;" class="fa-solid fa-location-dot"></i>B 23, Block
+                    Rd, B
+                    Block,
+                    Sector 63, Noida,
+                    Uttar Pradesh 201301</p>
+                <p class="footer-email"><i class="fa-solid fa-envelope"></i><a
+                        style="color: #ccc; text-decoration: none;" href="#">info@meon.co.in</a> </p>
+            </div>
+            <div class="footer-col">
+                <h3>Subscribe Our Newsletter</h3>
+                <p>The world wants to explore something
+                    new our tools provide the satisfaction
+                    of trying something new. Stay up to
+                    date with the technology trends and
+                    smartly connect and interact with your
+                    customers to save time and cost.</p>
+                <form>
+                    <input type="email" placeholder="Enter your email id" required>
+                    <button class="email-sent" type="submit"><i class="fa-solid fa-paper-plane"
+                            style="color: white;"></i></button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-down">
+            <p class="copyright">&#169 Copyright Meon Technologies Pvt. Ltd. All Rights Reserved</p>
+            <div class="social-media-icons">
+                <a href="#"> <i style="color: white;" class="fa-brands fa-instagram"></i></a>
+                <a href="#"> <i style="color: white;" class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"> <i style="color: white;" class="fa-brands fa-twitter"></i></a>
+                <a href="#"> <i style="color: white;" class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!----------------------------------------- Footer ---------------------------------------->
+
+
+    <script>
+
+        const hamburger = document.querySelector('.hamburger')
+
+        hamburger.onclick = function () {
+            const navbar = document.querySelector('.nav-bar')
+            navbar.classList.toggle("active")
+        }
+
+    </script>
+
+</body>
+
+</html>
